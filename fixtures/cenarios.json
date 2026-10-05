@@ -1,0 +1,76 @@
+{
+  "loginAdmin": [
+    {
+      "descricao": "deve retornar 200 e os dados do administrador quando o e-mail e a senha forem corretos",
+      "email": "admin@escola.com",
+      "senha": "admin123",
+      "status": 200,
+      "role": "admin"
+    },
+    {
+      "descricao": "deve retornar 401 quando a senha do administrador for inválida",
+      "email": "admin@escola.com",
+      "senha": "senha-incorreta",
+      "status": 401,
+      "erro": "E-mail ou senha inválidos."
+    }
+  ],
+  "cadastroAluno": [
+    {
+      "descricao": "deve retornar 201 e o aluno cadastrado quando todos os dados forem informados",
+      "aluno": {
+        "nome": "Diego Ramos",
+        "email": "diego.ramos@example.com",
+        "matricula": "2024101",
+        "senha": "123456"
+      },
+      "status": 201
+    },
+    {
+      "descricao": "deve retornar 400 quando os campos obrigatórios não forem informados",
+      "aluno": {
+        "nome": "Elisa Prado",
+        "email": "elisa.prado@example.com"
+      },
+      "status": 400,
+      "erro": "Os campos \"nome\", \"email\", \"matricula\" e \"senha\" são obrigatórios."
+    }
+  ],
+  "loginAluno": [
+    {
+      "descricao": "deve retornar 200 e os dados do aluno quando o e-mail e a senha forem corretos",
+      "email": "ana.souza@example.com",
+      "senha": "123456",
+      "status": 200,
+      "role": "aluno"
+    },
+    {
+      "descricao": "deve retornar 401 quando a senha do aluno for inválida",
+      "email": "ana.souza@example.com",
+      "senha": "senha-incorreta",
+      "status": 401,
+      "erro": "E-mail ou senha inválidos."
+    }
+  ],
+  "entregaTrabalho": [
+    {
+      "descricao": "deve retornar 201 e o trabalho registrado quando o aluno estiver matriculado na disciplina",
+      "trabalho": {
+        "disciplinaId": "disciplina-programacao-web",
+        "titulo": "Projeto de API REST",
+        "descricao": "Entrega do projeto final da disciplina."
+      },
+      "status": 201
+    },
+    {
+      "descricao": "deve retornar 409 quando o aluno não estiver matriculado na disciplina",
+      "trabalho": {
+        "disciplinaId": "disciplina-historia",
+        "titulo": "Resumo da Revolução Francesa",
+        "descricao": "Trabalho de uma disciplina em que o aluno não está matriculado."
+      },
+      "status": 409,
+      "erro": "O aluno não está matriculado nesta disciplina."
+    }
+  ]
+}
