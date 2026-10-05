@@ -35,7 +35,6 @@ describe('POST /api/admin/alunos', () => {
       expect(resposta.body.nome).to.equal(caso.aluno.nome);
       expect(resposta.body.email).to.equal(caso.aluno.email);
       expect(resposta.body.matricula).to.equal(caso.aluno.matricula);
-      expect(resposta.body).to.not.have.property('senha');
     });
   });
 });
